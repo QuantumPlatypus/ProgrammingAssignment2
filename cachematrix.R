@@ -8,16 +8,26 @@
 
 makeCacheMatrix <- function(x = matrix()) {
      
+     #Initialize the cache
+     
      m <- NULL
      
+     #Initialize the new object
      set <- function(y) {
           x <<- y
           m <<- NULL
      }
      
+     
+     # Define the operations on the object and return them in a list
+     # This allows any of the functions to be called using x$function()
+     
      get <- function() x
      setinv <- function(solution) m <<- solution
      getinv <- function() m
+     
+     #this returns the list - in R the last call is returned
+     
      list(set = set, get = get, setinv = setinv, getinv = getinv )
      
 }
